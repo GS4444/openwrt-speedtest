@@ -24,7 +24,7 @@ int main(int argc, char **argv)
 	
 		while(1) {
 			output[0] = '\0';
-			pp = popen("/usr/bin/betterspeedtest -t 2", "r");
+			pp = popen("/usr/bin/betterspeedtest -t 10", "r");
 			if (pp != NULL) {
 				while (1) {
 					char *line;
@@ -36,14 +36,14 @@ int main(int argc, char **argv)
 					//if (line[0] == 'd') printf("%s", line); /* line includes '\n' */
 				}
 				pclose(pp);
-				fprintf(stdout, "Writing to file.....\n");
-				fprintf(stdout, "%s", output);
+				//fprintf(stdout, "Writing to file.....\n");
+				//fprintf(stdout, "%s", output);
 				fh = fopen("/tmp/bandwidth", "wb");
 				fprintf(fh,"%s",output);
 				fclose(fh);
-				fprintf(stdout, "\n.......Writing done\n");
+				//fprintf(stdout, "\n.......Writing done\n");
 				
-				sleep(1);
+				sleep(300);
 			}
 		}		
 		//Just sleep a minute and exit the daemon.
