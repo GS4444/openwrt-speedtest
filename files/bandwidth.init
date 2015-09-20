@@ -4,7 +4,7 @@ START=95
 
 LIST_SEP="
 "
-MYAPP_COMMAND=/usr/bin/myapp
+MYAPP_COMMAND=/usr/bin/bandwidth
 
 
 section_enabled() {
@@ -22,15 +22,17 @@ start_instance() {
 
 stop_instance() {
 	local s="$1"
-	service_stop "$MYAPP_COMMAND"
+	#service_stop "$MYAPP_COMMAND"
+	pid=`pgrep $MYAPP_COMMAND`
+	kill -9 $pid
 }
 
 start() {
-	config_load 'myapp'
-	config_foreach start_instance 'myapp'
+	config_load 'bandwidth'
+	config_foreach start_instance 'bandwidth'
 }
 
 stop() {
-	config_load 'myapp'
-	config_foreach stop_instance 'myapp'
+	config_load 'bandwidth'
+	config_foreach stop_instance 'bandwidth'
 }
