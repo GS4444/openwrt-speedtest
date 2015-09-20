@@ -1,11 +1,17 @@
 #
 # This software is licensed under the Public Domain.
 #
+
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=bandwidth
 PKG_VERSION:=0.1
 PKG_RELEASE:=1
+
+NETPERF_NAME:=netperf
+NETPERF_VERSION:=2.7.0
+
 
 include $(INCLUDE_DIR)/package.mk
 include $(INCLUDE_DIR)/cmake.mk
@@ -23,9 +29,15 @@ define Package/bandwidth/description
 	This package measures uplink bandwidth regularly & writes into /proc/bandiwdth file
 endef
 
+
 define Build/Prepare
 	mkdir -p $(PKG_BUILD_DIR)
 	$(CP) ./src/* $(PKG_BUILD_DIR)/
+endef
+
+define Package/preinst
+#!/bin/sh
+make $(SOURCE)/netperf/compile 
 endef
 
 define Package/bandwidth/install
