@@ -10,7 +10,7 @@ from root of your BUILD_ROOT .
 
 ipk is generated inside bin/ directory. Copy in your openwrt & you are good to go
 
-You would also need to build [openwrt-netperd](http://github.com/griggi/openwrt-netperf) separately, copy the ipk to Openwrt & install it. It installs `netperf` which is used by `betterspeedtest` to measure the bandwidth
+You would also need to build [netperf](http://github.com/griggi/openwrt-netperf) separately, copy the ipk to Openwrt & install it. It installs `netperf` which is used by `betterspeedtest` to measure the bandwidth
 
 ### Version 2.0
 
