@@ -31,20 +31,17 @@ endef
 
 
 define Build/Prepare
+#!/bin/sh
+	make $(TOPDIR)/$(SOURCE)/netperf/compile 
 	mkdir -p $(PKG_BUILD_DIR)
-	$(CP) ./src/* $(PKG_BUILD_DIR)/
+	cp ./src/* $(PKG_BUILD_DIR)/
 endef
 
-define Package/preinst
-#!/bin/sh
-make $(SOURCE)/netperf/compile 
-endef
 
 define Package/bandwidth/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/bandwidth $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/betterspeedtest $(1)/usr/bin/
-	$(INSTALL_BIN) $(PKG_BUILD_DIR)/netperf $(1)/usr/bin/
 
 	$(INSTALL_DIR) $(1)/etc/init.d/
 	$(INSTALL_BIN) files/bandwidth.init $(1)/etc/init.d/bandwidth
