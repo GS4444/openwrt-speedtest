@@ -30,3 +30,4 @@ Check `src/main.c` . To run the file stand-alone, just compile & run it to see h
 
 Fork this repository, put your version of main.c & send a pull request. If your submission is right, we will add you as contributor to this organization (griggi) & you may contribute to other projects as well. 
 
+If you have any issues, mail me at pocha.sharma at gmail. You may also create an issue & one of us will answer it. 
